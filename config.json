@@ -5,7 +5,7 @@
     "year": "2025"
   },
   "analytics": {
-    "ga4_id": "" // Здесь вставь твой ID измерения GA4 (например: "G-XXXXXXXXXX")
+    "ga4_id": "G-J80XP7QN9X" // Здесь вставь твой ID измерения GA4 (например: "G-XXXXXXXXXX")
   },
 
   "hero": {
