@@ -4,8 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ландыш — Холистическая терапия</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&family=Yeseva+One&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Flores del Sol';
+    src: url('Flores del Sol SHA_2.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -192,10 +199,22 @@ nav {
   background: linear-gradient(90deg, var(--mint), transparent);
 }
 .hero-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 5.2rem; font-weight: 700; line-height: 1.02; letter-spacing: 0.05em;
+  /* По умолчанию для всего заголовка — оригинальный шрифт */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.2rem; font-weight: 300; line-height: 1.02;
   margin-bottom: 1.5rem; color: var(--white);
 }
+
+/* 👇 СМОТРИ СЮДА! Только для "Ландыш" — меняем шрифт и размер тут: */
+.hero-name-main {
+  font-family: 'Flores del Sol', serif;
+  font-size: 7rem; /* ← Увеличили размер */
+  /* Примеры других шрифтов: */
+  /* font-family: 'Dancing Script', cursive; */
+  /* font-family: 'Yeseva One', cursive; */
+  /* font-family: 'Playfair Display', serif; */
+}
+
 .hero-name em {
   font-style: italic;
   background: linear-gradient(135deg, var(--pink), var(--lilac));
@@ -713,7 +732,7 @@ html {
   <div class="hero-text fade-up">
     <div class="eyebrow">Холистическая терапия</div>
     <h1 class="hero-name">
-      Ландыш<br>
+      <span class="hero-name-main">Ландыш</span><br>
       <em>— ваш путь</em><br>
       к гармонии
     </h1>
@@ -871,7 +890,7 @@ const defaultConfig = {
 
   "hero": {
     "eyebrow": "Холистическая терапия",
-    "name_line1": "Landysh",
+    "name_line1": "Ландыш",
     "name_line2": "— ваш путь",
     "name_line3": "к гармонии",
     "description": "Терапия маслами и кинезиология для тех, кто хочет восстановить баланс тела и души. Мягко, бережно, с глубоким вниманием к вам.",
@@ -1025,7 +1044,7 @@ function applyConfig(c) {
   sel('.eyebrow', h.eyebrow);
   const heroName = document.querySelector('.hero-name');
   if (heroName) heroName.innerHTML =
-    `${h.name_line1}<br><em>${h.name_line2}</em><br>${h.name_line3}`;
+    `<span class="hero-name-main">${h.name_line1}</span><br><em>${h.name_line2}</em><br>${h.name_line3}`;
   sel('.hero-sub', h.description);
   const cta = document.querySelector('.hero-cta');
   if (cta) { cta.textContent = h.cta_button; cta.href = '#services'; }
